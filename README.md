@@ -4,6 +4,9 @@
 
 ### Project setup on Docker
 
+1. 環境変数を追加（.env.temp参照）
+2. 以下のコマンドを実行
+
 ```bash
 $ docker-compose watch
 ```
