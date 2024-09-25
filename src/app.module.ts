@@ -16,6 +16,7 @@ import { DrizzlePostgresModule } from '@knaadh/nestjs-drizzle-postgres';
           password: process.env.POSTGRES_PASSWORD,
           port: Number(process.env.POSTGRES_PORT),
           database: process.env.POSTGRES_DB,
+          max: Number(process.env.POSTGRES_MAX_CONNECTIONS) || 10,
         },
       },
       config: { schema: { ...schema } },
