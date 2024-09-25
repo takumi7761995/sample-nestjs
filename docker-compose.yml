@@ -36,8 +36,13 @@ services:
     depends_on:
       postgres:
         condition: service_healthy
-    volumes:
-      - .:/app # ソースコードをコンテナにマウント
+    develop:
+      watch:
+        - action: sync
+          path: ./
+          target: /app/
+        - action: rebuild
+          path: ./package.json
     env_file:
       - .env.local
     restart: always
