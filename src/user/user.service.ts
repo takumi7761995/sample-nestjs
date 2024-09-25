@@ -1,6 +1,5 @@
-import { Inject, Injectable, Query } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
 import { PostgresJsDatabase } from 'drizzle-orm/postgres-js';
-// import { drizzleInstance } from '../db/init';
 import { users } from '../db/schema';
 import { eq, sql } from 'drizzle-orm';
 import * as schema from '../db/schema';
@@ -12,11 +11,12 @@ export class UserService {
     private drizzleInstance: PostgresJsDatabase<typeof schema>,
   ) {}
 
-  async getUserById(@Query('id') id: number) {
+  async getUserById(id: number) {
     const randomNum = sql<number>`round((random() * (1 - 10000))::numeric, 0) + 10000`;
     return await this.drizzleInstance
       .select({ id: users.id, num: randomNum })
       .from(users)
-      .where(eq(users.id, id));
+      .where(eq(users.id, id))
+      .execute();
   }
 }

@@ -1,12 +1,15 @@
 # Dockerfile.dev
-FROM node:18.20.2-alpine AS base
+FROM node:18.20.2-alpine
 
 # 必要なパッケージをインストール
 RUN apk add --no-cache libc6-compat bash
 RUN apk update
 WORKDIR /app
+
 COPY package.json pnpm-lock.yaml ./
-COPY .gitignore .gitignore
 RUN yarn global add pnpm@8.9.0 && pnpm i
+
+# ソースコードをコピー
+COPY . .
 
 CMD pnpm start:dev
