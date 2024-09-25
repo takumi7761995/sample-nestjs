@@ -6,7 +6,8 @@
 $ docker-compose up --build
 ```
 
-http://localhost:8081/user?id=1　にアクセス
+以下にアクセスするとDBから取得した値が返ってくる
+http://localhost:8081/user?id=1
 
 ### dbの初期値を入れ直したい場合
 
