@@ -1,0 +1,13 @@
+{
+  // https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "eslint.workingDirectories": [
+    {
+      "mode": "auto"
+    }
+  ],
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true
+}
