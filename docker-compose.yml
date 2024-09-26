@@ -39,7 +39,7 @@ services:
     develop:
       watch:
         - action: sync
-          path: ./
+          path: ./src
           target: /app/
         - action: rebuild
           path: ./package.json
