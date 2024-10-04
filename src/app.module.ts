@@ -17,6 +17,7 @@ import { DrizzlePostgresModule } from '@knaadh/nestjs-drizzle-postgres';
           port: Number(process.env.POSTGRES_PORT),
           database: process.env.POSTGRES_DB,
           max: Number(process.env.POSTGRES_MAX_CONNECTIONS) || 10,
+          idle_timeout: Number(process.env.IDLE_TIMEOUT) || 30,
         },
       },
       config: { schema: { ...schema } },
